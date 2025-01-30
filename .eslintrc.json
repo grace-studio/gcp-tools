@@ -1,0 +1,17 @@
+{
+  "extends": ["prettier"],
+  "plugins": ["prettier", "import"],
+  "rules": {
+    "quotes": [1, "single"],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "padding-line-between-statements": [
+      1,
+      { "blankLine": "always", "prev": "*", "next": "return" }
+    ]
+  }
+}
