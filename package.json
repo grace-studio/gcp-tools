@@ -1,6 +1,6 @@
 {
   "name": "@grace-studio/gcp-tools",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Your package description",
   "type": "module",
   "exports": {
