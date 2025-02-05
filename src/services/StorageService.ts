@@ -1,11 +1,11 @@
+import type { Writable } from 'stream';
 import type { StorageConfig } from '../types';
 import { logger } from '../utils';
 import { Storage, File as StorageFile } from '@google-cloud/storage';
-import internal, { PassThrough } from 'stream';
 import { randomUUID } from 'crypto';
 
 export type Streamer = {
-  fileStream: internal.Writable;
+  fileStream: Writable;
   write: <T extends Record<string, any>>(data: T) => boolean;
   end: () => void;
 };
@@ -40,21 +40,17 @@ const getTempFile = async (config: StorageConfig) => {
 };
 
 const streamer = (file: StorageFile): Streamer => {
-  const passThroughStream = new PassThrough();
-
   const stream = file.createWriteStream({
     resumable: false,
     gzip: true,
     contentType: 'application/text',
   });
 
-  passThroughStream.pipe(stream);
-
   return {
     fileStream: stream,
     write: (data: Record<string, any>) =>
-      passThroughStream.write(`${JSON.stringify(data)}\n`),
-    end: () => passThroughStream.end(),
+      stream.write(`${JSON.stringify(data)}\n`),
+    end: () => stream.end(),
   };
 };
 
