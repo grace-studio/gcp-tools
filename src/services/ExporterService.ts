@@ -17,6 +17,19 @@ const firestoreToBigQuery = async <T, U extends Record<string, any>>(
   await tempFile.delete({ ignoreNotFound: true });
 };
 
+const firestoreToBigQueryStream = async <T, U extends Record<string, any>>(
+  config: FirestoreToBigQueryConfig,
+  documentParser: Parser<T, U>,
+) => {
+  const tempFile = await StorageService.getTempFile(config.destination);
+  const streamer = StorageService.streamer(tempFile);
+  await FirestoreService.streamDocs(config.source, documentParser, streamer);
+  streamer.end();
+  await BigQueryService.loadDataFromFile(config.destination, tempFile);
+  await tempFile.delete({ ignoreNotFound: true });
+};
+
 export const ExporterService = {
   firestoreToBigQuery,
+  firestoreToBigQueryStream,
 };
