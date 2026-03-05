@@ -21,8 +21,8 @@
     "lib"
   ],
   "scripts": {
-    "build": "tsup",
-    "prepublishOnly": "tsup",
+    "build": "tsdown",
+    "prepublishOnly": "tsdown",
     "postversion": "git push && git push --tags",
     "check-exports": "attw --pack ."
   },
@@ -38,22 +38,22 @@
   },
   "homepage": "https://github.com/grace-studio/umbraco-client#readme",
   "devDependencies": {
-    "@arethetypeswrong/cli": "0.17.3",
+    "@arethetypeswrong/cli": "0.18.2",
     "eslint": "9.18.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-prettier": "5.2.1",
     "prettier": "3.4.2",
     "prettier-eslint": "16.3.0",
-    "tsup": "8.3.6",
-    "typescript": "5.6.3"
+    "tsdown": "^0.21.0",
+    "typescript": "5.9.3"
   },
   "dependencies": {
-    "@google-cloud/bigquery": "7.9.1",
-    "@google-cloud/firestore": "7.11.0",
-    "@google-cloud/storage": "7.15.0"
+    "@google-cloud/bigquery": "8.1.1",
+    "@google-cloud/firestore": "8.3.0",
+    "@google-cloud/storage": "7.19.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=24"
   }
 }

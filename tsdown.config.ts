@@ -1,7 +1,7 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
 
 export default defineConfig({
-  entryPoints: [
+  entry: [
     'src/services/index.ts',
     'src/utils/index.ts',
     'src/types/index.ts',
@@ -12,4 +12,5 @@ export default defineConfig({
   dts: true,
   outDir: 'lib',
   clean: true,
+  target: false,
 });
