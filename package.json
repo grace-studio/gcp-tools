@@ -28,15 +28,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grace-studio/umbraco-client.git"
+    "url": "git+https://github.com/grace-studio/gcp-tools.git"
   },
   "keywords": [],
   "author": "Grace Studio",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/grace-studio/umbraco-client/issues"
+    "url": "https://github.com/grace-studio/gcp-tools/issues"
   },
-  "homepage": "https://github.com/grace-studio/umbraco-client#readme",
+  "homepage": "https://github.com/grace-studio/gcp-tools#readme",
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
     "eslint": "9.18.0",
