@@ -1,0 +1,59 @@
+{
+  "name": "@grace-studio/gcp-tools",
+  "version": "0.4.1",
+  "description": "Your package description",
+  "type": "module",
+  "exports": {
+    "./services": {
+      "import": "./lib/services/index.js",
+      "require": "./lib/services/index.cjs"
+    },
+    "./utils": {
+      "import": "./lib/utils/index.js",
+      "require": "./lib/utils/index.cjs"
+    },
+    "./types": {
+      "import": "./lib/types/index.js",
+      "require": "./lib/types/index.cjs"
+    }
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "prepublishOnly": "tsdown",
+    "postversion": "git push && git push --tags",
+    "check-exports": "attw --pack ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grace-studio/gcp-tools.git"
+  },
+  "keywords": [],
+  "author": "Grace Studio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grace-studio/gcp-tools/issues"
+  },
+  "homepage": "https://github.com/grace-studio/gcp-tools#readme",
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.2",
+    "eslint": "9.18.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "prettier": "3.4.2",
+    "prettier-eslint": "16.3.0",
+    "tsdown": "^0.21.0",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "@google-cloud/bigquery": "8.1.1",
+    "@google-cloud/firestore": "8.3.0",
+    "@google-cloud/storage": "7.19.0"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
